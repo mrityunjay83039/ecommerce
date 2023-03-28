@@ -6,11 +6,11 @@ import Contact from './Contact';
 import Products from './Products';
 import Singleproduct from './Singleproduct';
 import Cart from './Cart';
-import Errorfound from './Errorfound';
 import Header from './components/Header';
 import { GlobalStyle } from './GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import Footer from './components/Footer';
+import ErrorPage from './ErrorPage';
 
 function App() {
 
@@ -51,7 +51,7 @@ function App() {
           <Route path="/products" element = {<Products/>} />
           <Route path="/singleproduct/:id" element={<Singleproduct/>} />
           <Route path="/cart" element={<Cart/>} />
-          <Route path="*" element={<Errorfound/>} /> 
+          <Route path="*" element={<ErrorPage/>} /> 
         </Routes>
         <Footer/>
       </Router>
