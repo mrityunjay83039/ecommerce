@@ -1,7 +1,8 @@
 import axios from "axios";
 import { createContext, useEffect, useReducer } from "react";
+import reducer from "../reducer/ProductReducer";
 
-const AppContent = createContext();
+const AppContext = createContext();
 
 const API = "https://api.pujakaitem.com/api/products";
 
@@ -9,7 +10,7 @@ const initialState = {
     isLoading : false,
     isError : false,
     products : [],
-    featureProducts: [],
+    FeatureProducts: [],
 }
 
 const AppProvider = ({children}) => {
@@ -35,11 +36,11 @@ const AppProvider = ({children}) => {
 
     return(
 
-        <AppContent.Provider value={...State}>
+        <AppContext.Provider value={{...State}}>
             {children}
-        </AppContent.Provider>
+        </AppContext.Provider>
 
     );
 }
 
-export {AppContent, AppProvider};
+export {AppContext, AppProvider};
