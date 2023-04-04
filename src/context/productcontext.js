@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useReducer } from "react";
 import reducer from "../reducer/ProductReducer";
+import { useContext } from "react";
 
 const AppContext = createContext();
 
@@ -54,6 +55,8 @@ const AppProvider = ({children}) => {
         getProducts(API);
     }, []);
 
+    
+
     return(
 
         <AppContext.Provider value={{...State, getSingleProduct}}>
@@ -63,4 +66,11 @@ const AppProvider = ({children}) => {
     );
 }
 
-export {AppContext, AppProvider};
+// custom hooks
+    
+
+const useProductContext = () => {
+    return useContext(AppContext);
+};
+
+export {AppContext, AppProvider, useProductContext};
